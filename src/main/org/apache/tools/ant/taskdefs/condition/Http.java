@@ -95,6 +95,7 @@ public class Http extends ProjectComponent implements Condition {
                     HttpURLConnection http = (HttpURLConnection) conn;
                     http.setRequestMethod(requestMethod);
                     int code = http.getResponseCode();
+                    http.disconnect();
                     log("Result code for " + spec + " was " + code,
                         Project.MSG_VERBOSE);
                     if (code > 0 && code < errorsBeginAt) {
